@@ -1,1 +1,4 @@
 # KingsChip
+
+## Run
+`./kc $code`

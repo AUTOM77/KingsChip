@@ -1,0 +1,25 @@
+[package]
+name = "kingschip"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+clap = { version= "4.5.7", features=["derive"] }
+tokio = { version = "1.38.0", default-features = false, features = ["rt-multi-thread", "fs"] }
+reqwest = { version = "0.12.5", default-features = false, features = ["http2", "json", "rustls-tls"] }
+ring = "0.17.8"
+
+[[bin]]
+name = "kc"
+path = "src/cli.rs"
+
+[profile.release]
+lto = false
+strip = true
+panic = 'abort'
+opt-level = 3
+codegen-units = 1
+
+[profile.bench]
+lto = true
+codegen-units = 1
