@@ -4,7 +4,7 @@ use clap::Parser;
 
 #[derive(Parser)]
 struct Cli {
-    code: String,
+    code: Vec<String>,
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -13,8 +13,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let host = cipher::get_host();
     let drive = "http://127.0.0.1:4444";
-    let _ = ui::interface(drive, &host, &cli.code);
+    let code = cli.code.join("");
 
+    let _ = ui::interface(drive, &host, &code);
     println!("Processing time: {:?}", start_time.elapsed());
+    
     Ok(())
 }
