@@ -6,7 +6,7 @@ edition = "2021"
 [dependencies]
 clap = { version= "4.5.7", features=["derive"] }
 tokio = { version = "1.38.0", default-features = false, features = ["rt-multi-thread", "fs"] }
-fantoccini = { version = "0.19.3", default-features = false, features = ["rustls-tls"] }
+fantoccini = { version = "0.21.0", default-features = false, features = ["rustls-tls"] }
 serde_json = { version = "1.0.117", default-features = false, features = ["alloc"] }
 ring = "0.17.8"
 
